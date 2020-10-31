@@ -59,21 +59,21 @@ public class BMWorldGen
 
 	private static void mushroomModifications()
 	{
-		BiomeModifications.addCarver(MUSHROOM_BIOMES, AIR, key(Registry.CONFIGURED_CARVER_WORLDGEN, "LARGE_CAVE_CONFIGURED_CARVER"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, UNDERGROUND_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MYCELIUM_PATCH"));
+		BiomeModifications.addCarver(MUSHROOM_BIOMES, AIR, rk(LARGE_CAVE_CONFIGURED_CARVER));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, UNDERGROUND_DECORATION, rk(MYCELIUM_PATCH));
 
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "BLIGHTED_BALSA_TREES"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_UNDERGROUND"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_ROOTS_UNDERGROUND"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_SPROUTS_UNDERGROUND"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_GLOWSHROOMS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_UNDERGROUND_SHROOMS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_SPROUTS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_ROOTS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_UNDERGROUND_GLOWSHROOMS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "ORANGE_GLOWSHROOM_PATCH"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_TALL_SHROOMS"));
-		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, key(Registry.CONFIGURED_FEATURE_WORLDGEN, "MUSHROOM_FIELD_TALL_SHROOMS_UNDERGROUND"));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(BLIGHTED_BALSA_TREES));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_UNDERGROUND));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_ROOTS_UNDERGROUND));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_SPROUTS_UNDERGROUND));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_GLOWSHROOMS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_UNDERGROUND_SHROOMS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_SPROUTS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_ROOTS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_UNDERGROUND_GLOWSHROOMS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(ORANGE_GLOWSHROOM_PATCH));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_TALL_SHROOMS));
+		BiomeModifications.addFeature(MUSHROOM_BIOMES, VEGETAL_DECORATION, rk(MUSHROOM_FIELD_TALL_SHROOMS_UNDERGROUND));
 
 		BiomeModifications.addSpawn(MUSHROOM_BIOMES, SpawnGroup.AMBIENT, BMEntities.MUSHROOM_TRADER, 1, 1, 1);
 		BiomeModifications.addSpawn(MUSHROOM_BIOMES, SpawnGroup.AMBIENT, BMEntities.BLIGHTBAT, 5, 1, 1);
@@ -157,5 +157,20 @@ public class BMWorldGen
 
 	private static <T> RegistryKey<T> key(RegistryKey<Registry<T>> registry, String path) {
 		return RegistryKey.of(registry, BiomeMakeover.ID(path.toLowerCase(Locale.ROOT)));
+	}
+
+	public static RegistryKey<ConfiguredCarver<?>> rk(ConfiguredCarver carver)
+	{
+		return BuiltinRegistries.CONFIGURED_CARVER.getKey(carver).get();
+	}
+
+	public static RegistryKey<ConfiguredFeature<?, ?>> rk(ConfiguredFeature carver)
+	{
+		return BuiltinRegistries.CONFIGURED_FEATURE.getKey(carver).get();
+	}
+
+	public static RegistryKey<ConfiguredStructureFeature<?, ?>> rk(ConfiguredStructureFeature carver)
+	{
+		return BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getKey(carver).get();
 	}
 }
