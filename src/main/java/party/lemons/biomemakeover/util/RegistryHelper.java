@@ -2,6 +2,7 @@ package party.lemons.biomemakeover.util;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import party.lemons.biomemakeover.BiomeMakeover;
 import sun.reflect.generics.reflectiveObjects.TypeVariableImpl;
 

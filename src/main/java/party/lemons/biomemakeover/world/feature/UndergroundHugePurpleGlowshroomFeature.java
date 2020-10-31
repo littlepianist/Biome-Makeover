@@ -21,7 +21,7 @@ public class UndergroundHugePurpleGlowshroomFeature extends HugeMushroomFeature
 	}
 
 	protected void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
-		int size = config.capSize + RandomUtil.randomRange(1, 3);
+		int size = config.foliageRadius + RandomUtil.randomRange(1, 3);
 
 		for(int xx = -size; xx <= size; ++xx)
 		{

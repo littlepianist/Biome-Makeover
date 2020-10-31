@@ -26,7 +26,7 @@ public class HugeOrangeGlowshroomFeature extends HugeMushroomFeature
 	}
 
 	protected void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
-		int size = config.capSize;
+		int size = config.foliageRadius;
 
 		for(int xx = -size; xx <= size; ++xx)
 		{
@@ -126,7 +126,7 @@ public class HugeOrangeGlowshroomFeature extends HugeMushroomFeature
 		int i = pos.getY();
 		if (i >= 1 && i + height + 1 < 256) {
 			for(int j = 0; j <= height; ++j) {
-				int k = this.getCapSize(-1, -1, config.capSize, j);
+				int k = this.getCapSize(-1, -1, config.foliageRadius, j);
 
 				for(int l = -k; l <= k; ++l) {
 					for(int m = -k; m <= k; ++m) {

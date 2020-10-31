@@ -20,7 +20,7 @@ public class HugeBrownMushroomFeatureMixin
 	@Inject(at = @At("HEAD"), method = "generateCap", cancellable = true)
 	public void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config, CallbackInfo cbi)
 	{
-		int size = config.capSize + RandomUtil.randomRange(-1, 2);
+		int size = config.foliageRadius + RandomUtil.randomRange(-1, 2);
 		boolean isFlat = random.nextInt(6) == 0;
 
 		for(int xx = -size; xx <= size; ++xx)

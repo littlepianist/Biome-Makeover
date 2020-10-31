@@ -19,10 +19,10 @@ public class BiomeMakeover implements ModInitializer
 	public void onInitialize()
 	{
 		GROUP = new BiomeMakeoverItemGroup(new Identifier(MODID, MODID));
+		BMEntities.init();
 		BMWorldGen.init();
 		BMEffects.init();
 
-		BMEntities.init();
 		BMBlocks.init();
 		BMItems.init();
 
